@@ -38,6 +38,11 @@
     <header>
         <div class="container">
             <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center mt-2 mb-5">
+                        <h1 class="text-info">Breathtaking Reviews</h1>
+                    </div>
+                </div>
+            <div class="row">
                 <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 text-center">
                     {% if reviews %}
                         {% for review in reviews %}
@@ -83,7 +88,7 @@
                 </div>
                 {% else %}
                 <div class="col-4col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                    <a href="/login-page" class="btn btn-info btn-round">Login</a>
+                    <a href="/login-page" class="btn btn-info btn-round add-review">Login</a>
                 </div>
                 {% endif %}
             </div>

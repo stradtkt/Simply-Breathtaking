@@ -40,3 +40,24 @@ body{
 .carousel-indicators .active {
     background-color: teal !important;
 }
+#map {
+    width: 100%;
+    height: 400px;
+}
+#review-2 .btn {
+   display: block;
+   margin: 0 auto;
+   text-align: center;
+}
+
+/* Forms */
+
+form .form-group input,
+form .form-group textarea,
+form .form-group select {
+    box-shadow: 3px 3px 5px rgba(50,50,50,0.4);
+    -webkit-box-shadow: 3px 3px 5px rgba(50,50,50,0.4);
+    -moz-box-shadow: 3px 3px 5px rgba(50,50,50,0.4);
+    -ms-box-shadow: 3px 3px 5px rgba(50,50,50,0.4);
+    -o-box-shadow: 3px 3px 5px rgba(50,50,50,0.4);
+}
