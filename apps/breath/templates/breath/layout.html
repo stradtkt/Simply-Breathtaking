@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'breath/fa/css/all.min.css' %}">
+<link rel="stylesheet" href="{% static 'breath/assets/css/paper-kit.min.css' %}">
+<link rel="stylesheet" href="{% static 'breath/assets/css/app.css' %}">
+<link rel="stylesheet" href="{% static 'breath/assets/scss/app.css' %}">
+<title>{% block title %}Breathtaking{% endblock %}</title>
+</head>
+<body>
+
+    {% include 'breath/partials/_navbar.html' %}
+    {% block content %}{% endblock %}
+
+    {% if 'id' in request.session %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <a href="/logout" class="btn btn-danger btn-round">Logout</a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="{% static 'breath/assets/js/paper-kit.min.js' %}"></script>
+<script src="{% static 'breath/assets/js/parallax.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+{% extends 'breath/layout.html' %}
+{% block title %} Breathtaking Reviews Sevierville TN {% endblock %}
+{% block content %}
+
+
+<section id="about-1" data-type="background" data-speed="3">
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+                    <div class="header-text">
+                        <h1>Simply Breathtaking Cabin</h1>
+                        <p class="lead">Sevierville Tn.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</section>
+<section class="errors">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-3">
+                    {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                            <li{% if message.tags == "error" %} class="bg-danger text-white" 
+                            {% elif message.tags == "success" %} class="bg-success text-white"
+                            {% endif %}>{{message}}</li><br>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+<section id="review-2" data-type="background" data-speed="3">
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 text-center">
+                    {% if reviews %}
+                        {% for review in reviews %}
+                            <div class="review">
+                                <div class="card-big-shadow">
+                                    <div class="card card-just-text" data-background="color" data-color="green" data-radius="none">
+                                      <div class="card-body text-white">
+                                        <h6 class="card-category">{{review.user.name}}</h6>
+                                        <h4 class="card-title"><a href="#paper-kit">{{review.title}}</a></h4>
+                                        <p class="card-description">{{review.body}} 
+                                            <br><br>
+                                        <script>for(var i = 0; i < {{review.rating}}; i++) {document.write("<i class='fas fa-star'></i>");}</script>
+                                        </p>
+                                      </div>
+                                    </div>
+                                  </div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                {% if 'id' in request.session %}
+                <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <h3 class="text-center">Add Review</h3>
+                    <form action="add_review" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" name="title" class="form-control" placeholder="Enter Title...">
+                        </div>
+                        <div class="form-group">
+                            <textarea  name="body" class="form-control" cols="30" rows="10" placeholder="Enter Body..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <select name="rating" class="form-control">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                        <input type="submit" value="Add Review" class="btn btn-primary btn-round">
+                    </form>
+                </div>
+                {% else %}
+                <div class="col-4col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <a href="/login-page" class="btn btn-info btn-round">Login</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+</section>
+
+{% endblock %}
